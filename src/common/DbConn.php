@@ -23,16 +23,16 @@ class DbConn {
         if (!is_null(DbConn::$conn)) {
             return DbConn::$conn;
         } else {
-            $conf = parse_ini_file('./conf/db.ini');
+            $conf = parse_ini_file('./conf/db/ici.ini');
             try {
                 DbConn::$conn = new mysqli($conf['ip'], $conf['username'], $conf['password'], $conf['database'], $conf['port']);
             } catch (Exception $e) {
-                Log::notice("数据库连接错误" . $e->getMessage());
+                Log::addNotice("数据库连接错误" . $e->getMessage());
             }
 
             if (DbConn::$conn->connect_errno) {
                 $errMsg = DbConn::$conn->connect_error;
-                Log::notice("数据库连接错误：" . $errMsg);
+                Log::addNotice("数据库连接错误：" . $errMsg);
                 DbConn::$conn->close();
             }
             return DbConn::$conn;

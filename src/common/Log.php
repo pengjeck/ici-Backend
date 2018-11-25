@@ -10,7 +10,7 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 
-class Common_Log {
+class Log {
     /**
      * @var Logger
      */

@@ -4,7 +4,7 @@ namespace Ici;
 
 use PHPUnit\Runner\Exception;
 
-class ChangeUserInfo extends PageBase {
+class ChangeAvatar extends PageBase {
 
     function run($userPhone, $userName, $files) {
         $permitted = $this->checkPermission($userPhone, $userName);
